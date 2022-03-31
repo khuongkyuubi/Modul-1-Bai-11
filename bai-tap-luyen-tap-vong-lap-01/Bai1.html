@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<p id="text"></p>
+</body>
+<script>
+    // Code làm chậm vòng lặp for tham khảo trên mạng
+    const sleep = (milliseconds) => {
+        /* Promise nhận tham số là 1 functiion, function đó có 2 tham số,
+        tham số resolve và reject . cũng là 2 function. Khi thành công sẽ gọi functin resolve,
+        khi thất bại sẽ gọi function reject
+         */
+        return new Promise(resolve => {
+            setTimeout(resolve, milliseconds)
+        })
+    }
+    const count = async () => {
+        for (let i = 1; i < 100; i++) {
+
+            document.getElementById("text").innerText = `${i}`;
+            await sleep(500);
+
+            console.log(i);
+            if (i === 99) {
+                setTimeout(() => {
+                    alert("Đã đếm xong");
+                }, 20);
+            }
+        }
+    }
+    count();
+
+</script>
+</html>

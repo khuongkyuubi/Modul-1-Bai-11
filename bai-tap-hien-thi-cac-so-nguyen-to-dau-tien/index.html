@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+<body>
+
+</body>
+<script>
+    let numbers;
+    // numbers = parseInt(prompt("Nhập vào số nguyên"));
+    numbers = 20;
+    let text = `${numbers} số nguyên tố đầu tiên là: `
+    let N = 2; // Cho N ban đầu bằng 2, vì 2 là số nguyên tố đầu tiên, kiểm tra từ 2
+    for (let i = 0; i < numbers;) {
+        let count = 0;
+        // Vòng lặp kiểm tra số có phải số nguyên tố hay không
+        // 1 số không chia hết cho bất kỳ số nào trong khoảng từ 2 đến căn bậc 2 của chính nó,
+        // thì là số nguyên tố (nếu chia hết cho bất kỳ số nào thì count tăng thêm 1 -> loại)
+        for (j = 2; j <= Math.sqrt(N); j++) {
+            if (N % j === 0) {
+                count++;
+            }
+        }
+        // Nếu số đó là số nguyên tố thì count không tăng, do đó count == 0
+        if (count === 0) {
+            i++; // Nếu đúng là số nguyên tố thì mới tăng thêm i lên 1
+            text += `${N}, `;
+        }
+        N++; // Tăng N thêm 1 đơn vị sau mỗi lần kiểm tra
+    }
+    // Bỏ bớt dấu , ở cuối chuỗi
+    document.write(text.slice(0, text.length - 2));
+</script>
+</html>

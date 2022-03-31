@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+<p id="display"><br></p>
+<button id="1" type="submit" onclick="calc(this)" value="1">1</button>
+<button id="2" type="submit" onclick="calc(this)" value="2">2</button>
+<button id="3" type="submit" onclick="calc(this)" value="3">3</button>
+<button id="add" type="submit" onclick="calc(this)" value="+">+</button>
+<br>
+<button id="4" type="submit" onclick="calc(this)" value="4">4</button>
+<button id="5" type="submit" onclick="calc(this)" value="5">5</button>
+<button id="6" type="submit" onclick="calc(this)" value="6">6</button>
+<button id="subtract" type="submit" onclick="calc(this)" value="-">-</button>
+<br>
+<button id="7" type="submit" onclick="calc(this)" value="7">7</button>
+<button id="8" type="submit" onclick="calc(this)" value="8">8</button>
+<button id="9" type="submit" onclick="calc(this)" value="9">9</button>
+<button id="multi" type="submit" onclick="calc(this)" value="*">*</button>
+<br>
+<button id="0" type="submit" onclick="calc(this)" value="0">0</button>
+<button id="div" type="submit" onclick="calc(this)" value="/">/</button>
+<button id="mod" type="submit" onclick="calc(this)" value="%">%</button>
+<button id="equal" type="submit" onclick="equal()" value="=">=</button>
+<button id="clear" type="submit" onclick="del()" value="c">C</button>
+
+
+</body>
+<script>
+    let text = "";
+    let display = document.getElementById("display");
+
+    function calc(a) {
+        text += a.value;
+        display.innerText = text;
+        console.log(text);
+    }
+
+    function del() {
+        display.innerHTML = "<br>";
+        text = "";
+    }
+
+    function equal() {
+        text = eval(document.getElementById("display").innerText);
+        display.innerText = "" + text;
+    }
+</script>
+</html>
