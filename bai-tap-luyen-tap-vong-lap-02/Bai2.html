@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    let number = 0;
+    let factorial = 1;
+    let number2 = 0;
+    do {
+        number = (prompt("Nhập vào 1 số nguyên dương"));
+        if (number === null) {
+            alert("Bạn đã thoát chương trình!");
+            break;
+        }
+        number = parseInt(number);
+    } while (number < 0 || isNaN(number));
+    number2 = number;
+    if (number2) {
+        while (number2) {
+            factorial *= number2;
+            number2--;
+        }
+    } else {
+        factorial = 0;
+    }
+    alert(`Giai thừa của ${number} là ${factorial}`);
+</script>
+</html>

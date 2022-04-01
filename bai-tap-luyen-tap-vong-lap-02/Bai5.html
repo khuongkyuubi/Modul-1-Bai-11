@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="tienGui">Số tiền gửi (triệu):</label></td>
+        <td><input type="number" name="tienGui" id="tienGui"></td>
+    </tr>
+    <tr>
+        <td><label for="thangGui">Số tháng gửi:</label></td>
+        <td><input type="number" name="thangGui" id="thangGui"></td>
+    </tr>
+    <tr>
+        <td><label> Lãi xuất tháng (%):</label></td>
+        <td><input type="number" name="laiXuat" id="laiXuat"></td>
+    </tr>
+    <tr>
+        <td>
+            <button type="submit" id="submit" onclick="submit()">
+                Tính lãi
+            </button>
+        </td>
+        <td></td>
+    </tr>
+</table>
+<p id="display"></p>
+</body>
+<script>
+
+
+    let tienGui = document.getElementById("tienGui");
+    let thangGui = document.getElementById("thangGui");
+    let laiXuat = document.getElementById("laiXuat");
+    // let submit = document.getElementById("submit");
+    let display = document.getElementById("display");
+    let soTienLai = 0;
+    let soTienGuiBanDau = 0;
+    let soTienGui = 0;
+    let soThangGui = 0;
+    let soLaiXuat = 0;
+    let soTienLaiHangThang = 0;
+
+    function submit() {
+        soTienGui = +tienGui.value;
+        soThangGui = +thangGui.value;
+        soLaiXuat = +laiXuat.value;
+        soTienGuiBanDau = soTienGui;
+        for (let i = 0; i < soThangGui; i++) {
+            soTienLaiHangThang = (soTienGui * (soLaiXuat / 100));
+            soTienGui += soTienLaiHangThang;
+            soTienLai += soTienLaiHangThang;
+        }
+
+        display.innerText = `Số tiền ${soTienGuiBanDau}  triệu VNĐ sau ${soThangGui} tháng gửi
+        \nVới lãi xuất ${soLaiXuat}%/tháng, nhận lại được ${soTienLai.toFixed(0)} triệu VNĐ tiền lãi
+        \nSố tiền gửi mới là ${soTienGui.toFixed(0)} triệu VNĐ
+        `
+    }
+
+
+</script>
+</html>
